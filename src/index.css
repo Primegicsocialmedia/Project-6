@@ -1,21 +1,9 @@
 @import "tailwindcss";
 
 
-* {
-   font-family: "Prompt", sans-serif;
- }
- 
-
-html,
 body {
-  margin: 0;
-  padding: 0;
-  background: #200b0b;
-  color: #f3f4f6;
+    background-color: #000300;
 }
-
-@utility centerData {
-   display: flex;
-   justify-content: center;
-   align-items: center;
+@theme {
+    --color-primary:  #00df9a;
 }

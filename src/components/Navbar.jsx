@@ -1,45 +1,43 @@
-import React from 'react'
+import React, { useState } from "react";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
-  return (
-   <nav className="fixed top-0 w-full z-40 bg-[rgba(10, 10, 10, 0.8)] backdrop-blur-lg border-b border-white/10 shadow-lg">
-    <div  className="max-w-5xl mx-auto px-4">
-    <div className="flex justify-between items-center h-16">
-    <a href="#home" className="font-mono text-xl font-bold text-white">
-            {" "}
-            Prime<span className="text-blue-500"> Tech</span>{" "}
-          </a>
-          <div  className="w-7 h-5 relative cursor-pointer z-40 md:hidden"> &#9776;</div>
-          <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#home"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="#about"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#projects"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Projects
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Contact
-            </a>
-          </div>
-    </div>
-    </div>
-   </nav>
-  )
-}
 
-export default Navbar
+    const [nav, setNav] = useState(false);
+
+    const handleNav = () => {
+        setNav(!nav);
+    };  
+
+  return (
+    <div className="flex justify-between items-center h-24 m-w-[1240px] mx-auto px-4 text-white ">
+      <h1 className="w-full text-3xl font-bold text-primary">Prime.</h1>
+      <ul className="flex hidden">
+        <li className="p-4">Home</li>
+        <li className="p-4">Company</li>
+        <li className="p-4">Resourses</li>
+        <li className="p-4">About</li>
+        <li className="p-4">Contact</li>
+      </ul>
+      <div>
+        {!nav ? <AiOutlineMenu onClick={handleNav} size={20} /> : (<AiOutlineClose onClick={handleNav} size={20} />)}
+       
+      </div>
+      <div
+        className="fixed left-0 top-0 w-[60%] border-r border-r-gray-900 bg-[#000300] h-full"
+      >
+        <h1 className="w-full text-3xl font-bold text-primary m-4">Prime.</h1>
+
+        <ul className=" uppercase p-4">
+          <li className="p-4 border-b border-gray-600">Home</li>
+          <li className="p-4 border-b border-gray-600">Company</li>
+          <li className="p-4 border-b border-gray-600">Resourses</li>
+          <li className="p-4 border-b border-gray-600">About</li>
+          <li className="p-4 border-b border-gray-600">Contact</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
