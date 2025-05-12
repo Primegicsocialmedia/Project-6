@@ -10,21 +10,21 @@ const Navbar = () => {
     };  
 
   return (
-    <div className="flex justify-between items-center h-24 m-w-[1240px] mx-auto px-4 text-white ">
+    <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white ">
       <h1 className="w-full text-3xl font-bold text-primary">Prime.</h1>
-      <ul className="flex hidden">
+      <ul className="hidden md:flex">
         <li className="p-4">Home</li>
         <li className="p-4">Company</li>
         <li className="p-4">Resourses</li>
         <li className="p-4">About</li>
         <li className="p-4">Contact</li>
       </ul>
-      <div>
-        {!nav ? <AiOutlineMenu onClick={handleNav} size={20} /> : (<AiOutlineClose onClick={handleNav} size={20} />)}
+      <div onClick={handleNav} className="block md:hidden">
+        {!nav ? <AiOutlineMenu onClick={handleNav} size={20} /> : (<AiOutlineClose  size={20} />)}
        
       </div>
       <div
-        className="fixed left-0 top-0 w-[60%] border-r border-r-gray-900 bg-[#000300] h-full"
+        className={!nav ? `fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500` : `fixed left-[100%]`}
       >
         <h1 className="w-full text-3xl font-bold text-primary m-4">Prime.</h1>
 
